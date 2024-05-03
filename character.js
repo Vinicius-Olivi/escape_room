@@ -14,7 +14,7 @@ export class CharacterSelector {
         .prompt({
           type: "list",
           name: "character",
-          message: "Please choose your character",
+          message: "Please choose your character: ",
           choices: ["Engineer", "Pilot", "Scientist"],
         })
         .then((answer) => {
