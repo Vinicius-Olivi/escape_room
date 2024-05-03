@@ -1,3 +1,6 @@
+import inquirer from "inquirer";
+import { enterSpaceStation } from "./enterSpaceStation.js";
+
 export function startGame() {
   console.log("Welcome to the Space Station Escape Room!");
 
