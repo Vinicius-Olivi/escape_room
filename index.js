@@ -12,7 +12,6 @@ function startGame() {
     "Your mission is to repair the station's systems and find a way back to Earth.",
   );
 
-  // Prompt user to start the game
   inquirer
     .prompt([
       {
@@ -21,10 +20,16 @@ function startGame() {
         message: "Are you ready to begin?",
         default: true,
       },
+      {
+        type: "list",
+        name: "characters",
+        message: "Please choose your character",
+        choices: ["Engineer", "Pilot", "Scientist"],
+      },
     ])
     .then((answers) => {
       if (answers.start) {
-        console.log("Great! Let's get started.");
+        console.log(`Great! Let's get started ${answers.characters}.`);
         enterSpaceStation();
       } else {
         console.log("Come back when you're ready. Goodbye!");
@@ -36,7 +41,6 @@ function startGame() {
 function enterSpaceStation() {
   console.log("You float into the space station's control room...");
 
-  // Prompt user to explore the control room
   inquirer
     .prompt([
       {
@@ -81,13 +85,11 @@ function enterSpaceStation() {
     });
 }
 
-// Function to repair the control panel
 function repairControlPanel() {
   console.log(
     "You examine the control panel and identify the source of the malfunction.",
   );
 
-  // Prompt user to repair the control panel
   inquirer
     .prompt([
       {
@@ -119,10 +121,11 @@ function repairControlPanel() {
     });
 }
 
+// Function to repair the Navigation System
+
 function repairNavigationSystem() {
   console.log("You check the navigation system, but it appears to be offline.");
 
-  // Prompt user to repair the control panel
   inquirer
     .prompt([
       {
@@ -160,7 +163,6 @@ function repairOxygenLevel() {
     "You notice the oxygen levels in the space station are dangerously low.",
   );
 
-  // Prompt user to repair the control panel
   inquirer
     .prompt([
       {
@@ -191,5 +193,4 @@ function repairOxygenLevel() {
     });
 }
 
-// Start the game
 startGame();
