@@ -85,26 +85,30 @@ export function repairOxygenLevel() {
         type: "confirm",
         name: "repair",
         message:
-          "You quickly assess the oxygen system, identifying damaged components and leaks.",
+          "You quickly assess the oxygen system, identifying damaged components and leaks." +
+          " You have 5 seconds to fix it!",
         default: true,
       },
     ])
     .then((answers) => {
-      if (answers.repair) {
-        console.log(
-          "With steady hands, you patch up the leaks and replace faulty components.",
-        );
-        console.log(
-          "After a nerve-wracking few minutes, the oxygen levels stabilize, and everyone breathes a sigh of relief.",
-        );
-        console.log(
-          "Congratulations! You've successfully repaired the oxygen system, ensuring the safety of everyone on board and we are going back to the Earth!.",
-        );
-      } else {
-        console.log(
-          "You decide not to attempt repairs and the oxygen has run out!",
-        );
-        console.log("Game Over!.");
-      }
+      setTimeout(function () {
+        if (answers.repair) {
+          console.log(
+            "With steady hands, you patch up the leaks and replace faulty components.",
+          );
+          console.log(
+            "After a nerve-wracking few seconds, the oxygen levels stabilize, and everyone breathes a sigh of relief.",
+          );
+          console.log(
+            "Congratulations! You've successfully repaired the oxygen system, ensuring the safety of everyone on board and we are going back to the Earth!.",
+          );
+          // Pass the return value in the done callback
+        } else {
+          // Pass the return value in the done callback
+          console.log(
+            "You decide not to attempt repairs and the oxygen has run out!",
+          );
+        }
+      }, 5000);
     });
 }
